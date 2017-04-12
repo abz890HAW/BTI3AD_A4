@@ -15,7 +15,7 @@ public class Counter {
     public void resetCount() {
         this.counter = 0;
     }
-    public void countUp(int add) {
+    public void countUp() {
         this.counter++;
     }
 
