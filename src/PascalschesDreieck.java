@@ -19,13 +19,13 @@ public class PascalschesDreieck {
 		fakultaeten[0] = BigInteger.ONE;
 		for(int i = 1; i < fakultaeten.length;i++ ){
 			fakultaeten[i] = fakultaeten[i-1].multiply(BigInteger.valueOf(i));
-			PascalschSchnellCounter.countUp(1);
+			PascalschSchnellCounter.countUp();
 		}
 		
 		BigInteger[] koeffizienten = new BigInteger[n + 1];
 		for (int i = 0; i < koeffizienten.length; i++) {
 			koeffizienten[i] = fakultaeten[n].divide(fakultaeten[i].multiply(fakultaeten[n-i]));
-			PascalschSchnellCounter.countUp(1);
+			PascalschSchnellCounter.countUp();
 		}
 		return koeffizienten;
 	}
