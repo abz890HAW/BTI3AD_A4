@@ -8,8 +8,18 @@ public class PascalBenchmark {
         int[] result;
         Counter counter = new Counter();
         PascalGen pascalGen = new RecuPascalGen();
-        for(int i = 1; i < 100; i++) {
-            System.out.println(Arrays.toString(pascalGen.generatePascalLine(i, counter)));
+        PascalGen[] pascalGens = {
+                new RecuPascalGen(),
+        };
+        System.out.printf("N reku ite\n");
+        for(int n = 1; n < 100; n++) {
+            System.out.printf("%d", n);
+            for(PascalGen gen: pascalGens){
+                gen.generatePascalLine(n, counter);
+                System.out.printf(" %d", counter.getCount());
+                counter.resetCount();
+            }
+            System.out.printf("\n");
         }
     }
 }
