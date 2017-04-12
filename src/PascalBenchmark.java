@@ -10,6 +10,7 @@ public class PascalBenchmark {
         PascalGen pascalGen = new RecuPascalGen();
         PascalGen[] pascalGens = {
                 new RecuPascalGen(),
+                new ItePascalGen(),
         };
         System.out.printf("N reku ite\n");
         for(int n = 1; n < 100; n++) {
