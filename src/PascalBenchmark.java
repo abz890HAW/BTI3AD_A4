@@ -11,8 +11,9 @@ public class PascalBenchmark {
         PascalGen[] pascalGens = {
                 new RecuPascalGen(),
                 new ItePascalGen(),
+                new PascalschesDreieck()
         };
-        System.out.printf("N reku ite\n");
+        System.out.printf("N reku ite fast\n");
         for(int n = 1; n < 100; n++) {
             System.out.printf("%d", n);
             for(PascalGen gen: pascalGens){
