@@ -148,7 +148,7 @@ ein lineares (Steigung 1).
       \addplot +[mark size=0.5pt] table [x=N, y=reku] {dat/benchmark.dat};
       \addplot +[mark size=0.5pt] table [x=N, y=ite, mark=none] {dat/benchmark.dat};
       \addplot +[mark size=0.5pt] table [x=N, y=fast, mark=none] {dat/benchmark.dat};
-      \legend{$T(N)_{rekursiv}$,$T(N)_{rekursiv}$,$T(N)_{direkt}$}
+      \legend{$T(N)_{rekursiv}$,$T(N)_{iterativ}$,$T(N)_{direkt}$}
     \end{loglogaxis}
   \end{tikzpicture}
   \caption{Graph des Aufwands $T(N)$ f\"ur alle drei Funktionen bei steigender Aufwandsgr\"o{\ss}e $N$ in einer log-log-Skala.}
@@ -172,12 +172,36 @@ ein lineares (Steigung 1).
       \addplot +[mark size=0.5pt] table [x=N, y=reku] {dat/benchmark.dat};
       \addplot +[mark size=0.5pt] table [x=N, y=ite, mark=none] {dat/benchmark.dat};
       \addplot +[mark size=0.5pt] table [x=N, y=fast, mark=none] {dat/benchmark.dat};
-      \legend{$T(N)_{rekursiv}$,$T(N)_{rekursiv}$,$T(N)_{direkt}$}
+      \legend{$T(N)_{rekursiv}$,$T(N)_{iterativ}$,$T(N)_{direkt}$}
     \end{loglogaxis}
   \end{tikzpicture}
   \caption{Graph des Aufwands $T(N)$ f\"ur alle drei Funktionen bei steigender Aufwandsgr\"o{\ss}e $N$ in einer symmetrischen log-log-Skala.}
   \label{figure:loglogeq}
 \end{figure}
+
+Die quadratischen Laufzeiten der iterativen und rekursiven L\"osung lassen sich
+mit der Gau{\ss}schen Summenformel erkl\"aren. F\"ur jede Zeile braucht man die
+Zeile davor udn jede Zeile braucht einen Rechenschritt mehr als die davor.
+
+Bzw.:
+\begin{equation}
+  \begin{split}
+    T(1)_{rekursiv} &= 0 \\
+    T(N)_{rekursiv} &= T(N-1)_{rekursiv} + N - 1 = \mathcal{O}(n^2)\\
+  \end{split}
+\end{equation}
+
+\begin{equation}
+  \begin{split}
+    T(N)_{iterativ} &= \sum_{i=0}^{N-1} i = \mathcal{O}(n^2)\\
+  \end{split}
+\end{equation}
+
+\begin{equation}
+  \begin{split}
+    T(N)_{direkt} &= \sum_{i=0}^{N-1} 1 = \mathcal{O}(n)\\
+  \end{split}
+\end{equation}
 
 
 \end{document}
