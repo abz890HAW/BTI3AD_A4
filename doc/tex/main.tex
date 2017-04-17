@@ -79,19 +79,57 @@
 \maketitle % Print the title
 
 \subsubsection*{Abstract}
-Blablabla
+In dieser Aufgabe soll sich mit rekursiven und iterativen Verfahren am Beispiel
+des Pascalschen Dreiecks beschäftigt werden. Dieses Dokument stellt einen L\"osungsvorschlag
+dar und beinhaltet die Aufbereitung und heuristische Auswertung der Schrittz\"ahler
+in den Implementationen, so wie eine analytische Herleitung.
 
 \renewcommand{\contentsname}{Inhaltsangabe}
 \renewcommand*\listtablename{Tabellen}
 \renewcommand*\listfigurename{Darstellungen}
 \tableofcontents
 %\listoftables
-%\listoffigures
+\listoffigures
 %\lstlistoflistings
 
 \clearpage
 
-\section{Blafasel}
+\section{Algorithmen}
+
+Dieser Abschnitt beschreibt grundlegend die Funktion und Implementation der Algorithmen.
+Alle Algorithmen implementieren das gleiche Interface. Dieses beschreibt, dass die
+Funktionen als einzigen Parameter entgegennimmr, welche Zeile errechnet werden soll.
+Der R\"uckgabetyp ist ein Zahlenfeld, welches die entsprechenden Zeile darstellt.
+
+\subsection{Rekursiv}
+Die Abbruchbedinung f\"ur diese Implementation ist, dass man die 1. oder eine
+``kleine'' Zeile errechnen l\"asst. In diesem Fall wird $[1, 1]$ zur\"uckgegeben.
+In alles anderen F\"allen wird erst die vorhergehende Zeile errechnet und dann
+damit iterativ die Elemente der n\"achste Zeile generiert.
+
+\subsection{Iterativ}
+Dieser Algorithmus generiert als ersten die erste Zeile. Danach werden nach und
+nach darauf basierend alle Weiteren Zeilen aus der vorhergehenden generiert, bis
+man die gew\"unschte Zeile erreicht hat.
+
+\subsection{Direkt}
+Dieser algorithmus generiert alle Elemente der Zeile mit dem Binomialkoeffizienten
+$\binom{n}{k}$, wobei $n$ die Zeilennummer ist und $k$ die Position in der Zeile.
+
+\section{Laufzeitergebnisse}
+
+Die Darstellung \ref{figure:loglog} zeigt grafisch den Zusammenhang zwischen
+Problemgr\"o{\ss}e $N$, welche die Nummer des Reihe des Pascalschen Dreiecks darstellt,
+welche errechnet werden soll, und $T(N)$, welches das Ergebnis unsereses eingebauten
+Schrittz\"ahlers ist.
+
+Bereits an Abbildung \ref{figure:loglog} ist zu erkennen, dass der iterative und rekursive
+Algorithmus ein st\"arkeres Aufwandswachstum aufweisen als der direkte Algorithmus.
+Dies zeigt sich auch noch mal deutlich in der Abbildung \ref{figure:loglogeq},
+in welcher beide Achsen des Koordinatensystems gleich skaliert sind. Hieran kann
+man \"uber die Steigung auch ablesen, dass der interative und rekursive Algorithmus
+ein qudartisches Wachstum aufweisen (Steigung 2) und der direkte Algorithmus
+ein lineares (Steigung 1).
 
 \begin{figure}[h]
   \centering
@@ -107,13 +145,38 @@ Blablabla
       grid style=dashed,
       % axis equal,
       ]
-      \addplot +[mark size=0.3pt] table [x=N, y=reku] {dat/benchmark.dat};
-      \addplot +[mark size=0.3pt] table [x=N, y=ite, mark=none] {dat/benchmark.dat};
-      \legend{$T(N)_{rekursiv}$,$T(N)_{rekursiv}$}
+      \addplot +[mark size=0.5pt] table [x=N, y=reku] {dat/benchmark.dat};
+      \addplot +[mark size=0.5pt] table [x=N, y=ite, mark=none] {dat/benchmark.dat};
+      \addplot +[mark size=0.5pt] table [x=N, y=fast, mark=none] {dat/benchmark.dat};
+      \legend{$T(N)_{rekursiv}$,$T(N)_{rekursiv}$,$T(N)_{direkt}$}
     \end{loglogaxis}
   \end{tikzpicture}
-  \caption{Graph des Aufwands }
+  \caption{Graph des Aufwands $T(N)$ f\"ur alle drei Funktionen bei steigender Aufwandsgr\"o{\ss}e $N$ in einer log-log-Skala.}
   \label{figure:loglog}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \begin{loglogaxis}[
+      xlabel={Problemgr\"o{\ss}e $N$},
+      ylabel={Aufwand $T(N)$},
+      xmin=1,
+      ymin=1,
+      legend pos=north east,
+      xmajorgrids=true,
+      ymajorgrids=true,
+      grid style=dashed,
+      axis equal,
+      ]
+      \addplot +[mark size=0.5pt] table [x=N, y=reku] {dat/benchmark.dat};
+      \addplot +[mark size=0.5pt] table [x=N, y=ite, mark=none] {dat/benchmark.dat};
+      \addplot +[mark size=0.5pt] table [x=N, y=fast, mark=none] {dat/benchmark.dat};
+      \legend{$T(N)_{rekursiv}$,$T(N)_{rekursiv}$,$T(N)_{direkt}$}
+    \end{loglogaxis}
+  \end{tikzpicture}
+  \caption{Graph des Aufwands $T(N)$ f\"ur alle drei Funktionen bei steigender Aufwandsgr\"o{\ss}e $N$ in einer symmetrischen log-log-Skala.}
+  \label{figure:loglogeq}
 \end{figure}
 
 
