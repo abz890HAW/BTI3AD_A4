@@ -1,12 +1,12 @@
 TEX = pdflatex
-TEXFLAGS = -interaction=nonstopmode
+TEXFLAGS = -interaction=nonstopmode -output-directory=out
 
 .PHONY: all clean
 
 all : main.pdf
 
 clean :
-	rm -f *.aux *.log *.toc *.lof *.lot *.lol *.toc
+	rm -f out/*
 
 main.pdf : tex/main.tex lists
 	$(TEX) $(TEXFLAGS) $^
