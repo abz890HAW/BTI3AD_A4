@@ -189,14 +189,18 @@ Zeile davor und jede Zeile braucht einen Rechenschritt mehr als die davor.
     0 &, N\leq1\\\nonumber
     T(N-1)_{rekursiv} + N - 1 &, N>1
   \end{cases}&&\\\nonumber
+  T(N)_{rekursiv} &= \sum_{i=0}^{N-1} i&&\\\nonumber
+  T(N)_{rekursiv} &= \frac{\left(\left(N-1\right) \cdot \left(N-2\right)\right)}{2} &&\\\nonumber
   \text{somit gilt}&&\\\nonumber
   T(N)_{rekursiv} &= \mathcal{O}(n^2)&&\\
   \\\nonumber
   T(N)_{iterativ} &= \sum_{i=0}^{N-1} i&&\\\nonumber
+  T(N)_{iterativ} &= \frac{\left(\left(N-1\right) \cdot \left(N-2\right)\right)}{2} &&\\\nonumber
   \text{somit gilt}&&\\\nonumber
   T(N)_{rekursiv} &= \mathcal{O}(n^2)&&\\
   \\\nonumber
   T(N)_{direkt} &= \left(\sum_{i=0}^{N-1} 1\right) + \left(\sum_{i=0}^{N-1} 1\right) = \sum_{i=0}^{N-1} 2&&\\\nonumber
+  T(N)_{direkt} &= 2N&&\\\nonumber
   \text{somit gilt}&&\\\nonumber
   T(N)_{direkt} &= \mathcal{O}(n)&&\\
 \end{flalign}
