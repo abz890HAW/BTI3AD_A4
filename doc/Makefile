@@ -6,7 +6,7 @@ TEXFLAGS = -interaction=nonstopmode -output-directory=out
 all : main.pdf
 
 clean :
-	rm -f out/*
+	find ./out -type f ! -name '*.pdf' -delete
 
 main.pdf : tex/main.tex lists
 	$(TEX) $(TEXFLAGS) $^
