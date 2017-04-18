@@ -2,7 +2,7 @@
 % PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+\documentclass[paper=a4, fontsize=10.5pt]{scrartcl} % A4 paper and 11pt font size
 
 \usepackage[margin=1in]{geometry}
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
@@ -184,25 +184,21 @@ Die quadratischen Laufzeiten der iterativen und rekursiven L\"osung lassen sich
 mit der Gau{\ss}schen Summenformel erkl\"aren. F\"ur jede Zeile braucht man die
 Zeile davor und jede Zeile braucht einen Rechenschritt mehr als die davor.
 
-Bzw.:
-\begin{equation}
-  \begin{split}
-    T(1)_{rekursiv} &= 0 \\
-    T(N)_{rekursiv} &= T(N-1)_{rekursiv} + N - 1 = \mathcal{O}(n^2)\\
-  \end{split}
-\end{equation}
-
-\begin{equation}
-  \begin{split}
-    T(N)_{iterativ} &= \sum_{i=0}^{N-1} i = \mathcal{O}(n^2)\\
-  \end{split}
-\end{equation}
-
-\begin{equation}
-  \begin{split}
-    T(N)_{direkt} &= \left(\sum_{i=0}^{N-1} 1\right) + \left(\sum_{i=0}^{N-1} 1\right) = \sum_{i=0}^{N-1} 2 = 2N = \mathcal{O}(n)\\
-  \end{split}
-\end{equation}
-
+\begin{flalign}
+  T(N)_{rekursiv} &= \begin{cases}
+    0 &, N\leq1\\\nonumber
+    T(N-1)_{rekursiv} + N - 1 &, N>1
+  \end{cases}&&\\\nonumber
+  \text{somit gilt}&&\\\nonumber
+  T(N)_{rekursiv} &= \mathcal{O}(n^2)&&\\
+  \\\nonumber
+  T(N)_{iterativ} &= \sum_{i=0}^{N-1} i&&\\\nonumber
+  \text{somit gilt}&&\\\nonumber
+  T(N)_{rekursiv} &= \mathcal{O}(n^2)&&\\
+  \\\nonumber
+  T(N)_{direkt} &= \left(\sum_{i=0}^{N-1} 1\right) + \left(\sum_{i=0}^{N-1} 1\right) = \sum_{i=0}^{N-1} 2&&\\\nonumber
+  \text{somit gilt}&&\\\nonumber
+  T(N)_{direkt} &= \mathcal{O}(n)&&\\
+\end{flalign}
 
 \end{document}
