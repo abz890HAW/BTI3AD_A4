@@ -98,29 +98,29 @@ in den Implementationen, so wie eine analytische Herleitung.
 
 Dieser Abschnitt beschreibt grundlegend die Funktion und Implementation der Algorithmen.
 Alle Algorithmen implementieren das gleiche Interface. Dieses beschreibt, dass die
-Funktionen als einzigen Parameter entgegennimmr, welche Zeile errechnet werden soll.
+Funktionen als einzigen Parameter entgegennimmt, welche Zeile errechnet werden soll.
 Der R\"uckgabetyp ist ein Zahlenfeld, welches die entsprechenden Zeile darstellt.
 
 \subsection{Rekursiv}
-Die Abbruchbedinung f\"ur diese Implementation ist, dass man die 1. oder eine
+Die Abbruchbedienung f\"ur diese Implementation ist, dass man die 1. oder eine
 ``kleine'' Zeile errechnen l\"asst. In diesem Fall wird $[1, 1]$ zur\"uckgegeben.
 In alles anderen F\"allen wird erst die vorhergehende Zeile errechnet und dann
 damit iterativ die Elemente der n\"achste Zeile generiert.
 
 \subsection{Iterativ}
-Dieser Algorithmus generiert als ersten die erste Zeile. Danach werden nach und
+Dieser Algorithmus generiert als erstes die erste Zeile. Danach werden nach und
 nach darauf basierend alle Weiteren Zeilen aus der vorhergehenden generiert, bis
 man die gew\"unschte Zeile erreicht hat.
 
 \subsection{Direkt}
-Dieser algorithmus generiert alle Elemente der Zeile mit dem Binomialkoeffizienten
+Dieser Algorithmus generiert alle Elemente der Zeile mit dem Binominialkoeffizienten
 $\binom{n}{k}$, wobei $n$ die Zeilennummer ist und $k$ die Position in der Zeile.
 
 \section{Laufzeitergebnisse}
 
 Die Darstellung \ref{figure:loglog} zeigt grafisch den Zusammenhang zwischen
-Problemgr\"o{\ss}e $N$, welche die Nummer des Reihe des Pascalschen Dreiecks darstellt,
-welche errechnet werden soll, und $T(N)$, welches das Ergebnis unsereses eingebauten
+Problemgr\"o{\ss}e $N$, welche die Nummer der Reihe des Pascalschen Dreiecks darstellt,
+welche errechnet werden soll, und $T(N)$, welches das Ergebnis unseres eingebauten
 Schrittz\"ahlers ist.
 
 Bereits an Abbildung \ref{figure:loglog} ist zu erkennen, dass der iterative und rekursive
@@ -128,7 +128,7 @@ Algorithmus ein st\"arkeres Aufwandswachstum aufweisen als der direkte Algorithm
 Dies zeigt sich auch noch mal deutlich in der Abbildung \ref{figure:loglogeq},
 in welcher beide Achsen des Koordinatensystems gleich skaliert sind. Hieran kann
 man \"uber die Steigung auch ablesen, dass der interative und rekursive Algorithmus
-ein qudartisches Wachstum aufweisen (Steigung 2) und der direkte Algorithmus
+ein quadratisches Wachstum aufweisen (Steigung 2) und der direkte Algorithmus
 ein lineares (Steigung 1).
 
 \begin{figure}[h]
@@ -181,7 +181,7 @@ ein lineares (Steigung 1).
 
 Die quadratischen Laufzeiten der iterativen und rekursiven L\"osung lassen sich
 mit der Gau{\ss}schen Summenformel erkl\"aren. F\"ur jede Zeile braucht man die
-Zeile davor udn jede Zeile braucht einen Rechenschritt mehr als die davor.
+Zeile davor und jede Zeile braucht einen Rechenschritt mehr als die davor.
 
 Bzw.:
 \begin{equation}
